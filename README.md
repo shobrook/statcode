@@ -14,6 +14,6 @@ Requires Python 3.0 or higher.
 
 ## Contributing
 
-This was just something I put together in a day, but eventually I'd like to turn this project into the go-to manual for everything related to HTTP, such as extending support to things like [request headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers). If you'd like to be a part of that, please feel free to make a contribution. Just for the repo, make your changes and then submit a pull request. If you do contribute, please try to adhere to the existing style.
+This was just something I put together in a day, but eventually I'd like to turn this project into the go-to manual for everything related to HTTP, such as extending support to things like [request headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers). If you'd like to be a part of that, feel free to make a contribution. Just fork the repo, make your changes and then submit a pull request. If you do contribute, please try to adhere to the existing style.
 
 If you've discovered a bug or have a feature request, create an [issue](https://github.com/shobrook/teen/issues/new) and I'll take care of it!
