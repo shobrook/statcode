@@ -19,12 +19,6 @@
   description: "This code indicates that the server has received and is \
                 processing the request, but no response is available yet."
 
-102:
-  message: "Processing (WebDAV)"
-  category: "Informational Responses"
-  description: "This code indicates that the server has received and is \
-                processing the request, but no response is available yet."
-
 200:
   message: "OK"
   category: "Successful Responses"
