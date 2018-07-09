@@ -1,13 +1,16 @@
-from setuptools import find_packages
-from setuptools import setup
+try:
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
+from codecs import open
 
 setup(
     name="teen",
     description="Like man pages, but for HTTP status codes",
-    version="v1.0.1",
+    version="v1.0.2",
     install_requires=["pyyaml", "urwid"],
     packages=["teen"],
-    entry_points={"console_scripts": ["rebound = rebound.rebound:main"]},
+    entry_points={"console_scripts": ["teen = teen.teen:main"]},
     include_package_data=True,
     python_requires=">=3",
     url="https://github.com/shobrook/teen",
