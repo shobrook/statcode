@@ -275,7 +275,7 @@ def generate_content(status_code):
 
 
 def print_help():
-    print(''.join([BOLD, "teen v1.0.1 – Made by @shobrook", END, '\n']))
+    print(''.join([BOLD, "teen v1.0.3 – Made by @shobrook", END, '\n']))
     print("Like man pages, but for HTTP status codes.\n")
     print(''.join([UNDERLINE, "Usage:", END, " $ teen ", YELLOW, "status_code", END]))
 
