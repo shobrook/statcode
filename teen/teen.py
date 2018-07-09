@@ -22,7 +22,10 @@ SCROLL_TO_TOP = "to top"
 SCROLL_TO_END = "to end"
 
 # ASCII color codes
+YELLOW = '\033[33m'
 RED = "\033[31m"
+BOLD = '\033[1m'
+UNDERLINE = '\033[4m'
 END = "\033[0m"
 
 
@@ -35,7 +38,7 @@ class Scrollable(urwid.WidgetDecoration):
     # TODO: Fix scrolling behavior (works with up/down keys, not with cursor)
 
     def sizing(self):
-        return frozenset([BOX,])
+        return frozenset([BOX])
 
 
     def selectable(self):
@@ -43,7 +46,10 @@ class Scrollable(urwid.WidgetDecoration):
 
 
     def __init__(self, widget):
-        """Box widget (wrapper) that makes a fixed or flow widget vertically scrollable."""
+        """
+        Box widget (wrapper) that makes a fixed or flow widget vertically scrollable.
+        """
+
         self._trim_top = 0
         self._scroll_action = None
         self._forward_keypress = None
@@ -143,7 +149,10 @@ class Scrollable(urwid.WidgetDecoration):
 
 
     def _adjust_trim_top(self, canv, size):
-        """Adjust self._trim_top according to self._scroll_action"""
+        """
+        Adjust self._trim_top according to self._scroll_action
+        """
+
         action = self._scroll_action
         self._scroll_action = None
 
@@ -250,7 +259,7 @@ def generate_content(status_code):
         content = CODE_DESCRIPTIONS[int(status_code)]
 
         pile = urwid.Pile([
-            urwid.Text("Teen: Manual for HTTP Status Codes\n", align="center"),
+            urwid.Text("Teen: The Manual for HTTP Status Codes\n", align="center"),
             urwid.Text(("title", "STATUS MESSAGE")),
             urwid.Padding(urwid.Text(''.join([status_code, ": ", content["message"], '\n'])), left=5),
             urwid.Text(("title", "CATEGORY")),
@@ -266,11 +275,9 @@ def generate_content(status_code):
 
 
 def print_help():
-    pass
-
-
-def print_error_msg(msg):
-    print(''.join([RED, msg, END]))
+    print(''.join([BOLD, "teen v1.0.1 – Made by @shobrook", END, '\n']))
+    print("Like man pages, but for HTTP status codes.\n")
+    print(''.join([UNDERLINE, "Usage:", END, " $ teen ", YELLOW, "status_code", END]))
 
 
 ## Main ##
@@ -286,6 +293,6 @@ def main():
         if content:
             App(content) # Opens interface
         else:
-            print_error_msg("Sorry, teen doesn't recognize this status code: %s" % status_code)
+            print(''.join([RED, "Sorry, teen doesn't recognize this status code: ", status_code, END]))
 
     return
