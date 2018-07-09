@@ -7,7 +7,7 @@ from codecs import open
 setup(
     name="teen",
     description="Like man pages, but for HTTP status codes",
-    version="v1.0.2",
+    version="v1.0.3",
     install_requires=["pyyaml", "urwid"],
     packages=["teen"],
     entry_points={"console_scripts": ["teen = teen.teen:main"]},
