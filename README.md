@@ -1,6 +1,8 @@
 # teen
 
-`teen` pages are like `man` pages but for HTTP status codes. Most web developers spend some time looking at response codes – usually errors – and then Googling what they mean. But with `teen`, you can simply run `$ teen [status_code]` and get a quick explanation of your HTTP response – without leaving the terminal.
+`teen` pages are like `man` pages but for HTTP status codes. Most web developers spend some time looking at response codes (usually errors) and then Googling what they mean. But with `teen`, you can simply run `$ teen [status_code]` and get a quick explanation of your HTTP response – without leaving the terminal.
+
+![demo](assets/demo.gif)
 
 ## Installation
 
