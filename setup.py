@@ -5,15 +5,15 @@ except ImportError:
 from codecs import open
 
 setup(
-    name="teen",
+    name="statcode",
     description="Like man pages, but for HTTP status codes",
-    version="v1.0.3",
+    version="v1.0.0",
     install_requires=["pyyaml", "urwid"],
-    packages=["teen"],
-    entry_points={"console_scripts": ["teen = teen.teen:main"]},
+    packages=["statcode"],
+    entry_points={"console_scripts": ["statcode = statcode.statcode:main"]},
     include_package_data=True,
     python_requires=">=3",
-    url="https://github.com/shobrook/teen",
+    url="https://github.com/shobrook/statcode",
     author="shobrook",
     author_email="shobrookj@gmail.com",
     license="MIT"
