@@ -291,7 +291,13 @@ def main():
         content = generate_content(status_code)
 
         if content:
-            App(content) # Opens interface
+            try:
+                App(content) # Opens interface
+            except NameError:
+                size = os.get_terminal_size()
+                canvas = content.render(size)
+                text = "".join(text.decode("utf-8") for text in canvas.text)
+                print(text.rstrip())
         else:
             print(''.join([RED, "Sorry, statcode doesn't recognize: ", status_code, END]))
 
