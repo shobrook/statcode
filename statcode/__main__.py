@@ -1,5 +1,5 @@
 import sys
-from teen import main
+from statcode import main
 
 if __name__ == "__main__":
     main()

@@ -259,7 +259,7 @@ def generate_content(status_code):
         content = CODE_DESCRIPTIONS[int(status_code)]
 
         pile = urwid.Pile([
-            urwid.Text("Teen: The Manual for HTTP Status Codes\n", align="center"),
+            urwid.Text("STATCODE: The Manual for HTTP Status Codes\n", align="center"),
             urwid.Text(("title", "STATUS MESSAGE")),
             urwid.Padding(urwid.Text(''.join([status_code, ": ", content["message"], '\n'])), left=5),
             urwid.Text(("title", "CATEGORY")),
@@ -275,9 +275,9 @@ def generate_content(status_code):
 
 
 def print_help():
-    print(''.join([BOLD, "teen v1.0.3 – Made by @shobrook", END, '\n']))
+    print(''.join([BOLD, "statcode v1.0.0 – Made by @shobrook", END, '\n']))
     print("Like man pages, but for HTTP status codes.\n")
-    print(''.join([UNDERLINE, "Usage:", END, " $ teen ", YELLOW, "status_code", END]))
+    print(''.join([UNDERLINE, "Usage:", END, " $ statcode ", YELLOW, "status_code", END]))
 
 
 ## Main ##
@@ -293,6 +293,6 @@ def main():
         if content:
             App(content) # Opens interface
         else:
-            print(''.join([RED, "Sorry, teen doesn't recognize this status code: ", status_code, END]))
+            print(''.join([RED, "Sorry, statcode doesn't recognize: ", status_code, END]))
 
     return
