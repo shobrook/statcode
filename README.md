@@ -6,7 +6,7 @@
 
 ## Installation
 
-`statcode` works on MacOS, Linux, and Windows (if you use Cygwin), with compiled binaries available for [every release](https://github.com/shobrook/statcode/releases). You can also install it with pip:
+`statcode` works on MacOS, Linux, and Windows, with compiled binaries available for [every release](https://github.com/shobrook/statcode/releases). You can also install it with pip:
 
 `$ pip install statcode`
 
