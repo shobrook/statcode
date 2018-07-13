@@ -11,7 +11,12 @@ from urwid.widget import BOX, FLOW, FIXED
 
 # List of status code descriptions
 CURR_DIR = os.path.dirname(os.path.realpath(__file__))
-CODE_DESCRIPTIONS = yaml.load(open('/'.join([CURR_DIR, "code_descriptions.yml"]), 'r'))
+try:
+    CODE_DESCRIPTIONS = yaml.safe_load(
+        open('/'.join([CURR_DIR, "code_descriptions.yml"]), 'r'))
+except yaml.constructor.ConstructorError as err:
+    print("Invalid file. Only support valid json and yaml files.")
+    sys.exit(1)
 
 # Scroll actions
 SCROLL_LINE_UP = "line up"
