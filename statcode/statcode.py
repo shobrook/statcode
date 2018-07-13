@@ -15,8 +15,8 @@ try:
     CODE_DESCRIPTIONS = yaml.safe_load(
         open('/'.join([CURR_DIR, "code_descriptions.yml"]), 'r'))
 except yaml.constructor.ConstructorError as err:
-    print(str(err))
     print("Invalid file. Only support valid json and yaml files.")
+    sys.exit(1)
 
 # Scroll actions
 SCROLL_LINE_UP = "line up"
