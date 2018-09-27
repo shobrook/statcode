@@ -1,0 +1,44 @@
+Accept-Charset:
+  message: "Accept-Charset: utf-8"
+  category: "Client Request"
+  description: "Character sets that are acceptable by the client."
+
+A-IM:
+  message: "A-IM: feed"
+  category: "Client Request"
+  description: "Acceptable instance-manipulations for the request. See RFC 3229"
+
+Accept:
+  message: "Accept: text/html"
+  category: "Client Request"
+  description: "Media type(s) that is(/are) acceptable for the response."
+
+Accept-Encoding:
+  message: "Accept-Encoding: gzip, deflate"
+  category: "Client Request"
+  description: "List of acceptable encodings. See HTTP compression."
+
+Accept-Language:
+  message: "Accept-Language: en-US"
+  category: "Client Request"
+  description: "List of acceptable human languages for response."
+
+Accept-Datetime:
+  message: "Accept-Datetime: Thu, 31 May 2007 20:35:00 GMT"
+  category: "Client Request"
+  description: "	Acceptable version in time."
+
+Access-Control-Request-Method:
+  message: "Access-Control-Request-Method: GET"
+  category: "Client Request"
+  description: "Initiates a request for cross-origin resource sharing with Origin."
+
+Access-Control-Request-Headers:
+  message: "Access-Control-Request-Method: GET"
+  category: "Client Request"
+  description: "Initiates a request for cross-origin resource sharing with Origin."
+
+Authorization:
+  message: "Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=="
+  category: "Client Request"
+  description: "Authentication credentials for HTTP authentication."
