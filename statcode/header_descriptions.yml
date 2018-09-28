@@ -42,3 +42,101 @@ Authorization:
   message: "Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=="
   category: "Client Request"
   description: "Authentication credentials for HTTP authentication."
+
+Cache-Control:
+  message: "Cache-Control: no-cache"
+  category: "Client Request"
+  description: "Used to specify directives that must be obeyed by all caching mechanisms \
+                along the request-response chain."
+
+Connection:
+  message: "Connection: keep-alive
+            Connection: Upgrade"
+  category: "Client Request"
+  description: "Control options for the current connection and list of hop-by-hop request fields.\
+    Must not be used with HTTP/2."
+Content-Length:
+  message: "Content-Length: 348"
+  category: "Client Request"
+  description: "The length of the request body in octets (8-bit bytes)."
+
+Content-MD5:
+  message: "Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ=="
+  category: "Client Request"
+  description: "A Base64-encoded binary MD5 sum of the content of the request body."
+
+Content-Type:
+  message: "Content-Type: application/x-www-form-urlencoded"
+  category: "Client Request, Server Response"
+  description: "Client Request: The Media type of the body of the request (used with POST and PUT requests).\
+                  Server Response: The Media type of the body of the response (always sent, eg text/html)."
+
+Cookie:
+  message: "Cookie: $Version=1; Skin=new;"
+  category: "Client Request"
+  description: "An HTTP cookie previously sent by the server with Set-Cookie."
+
+Date:
+  message: "Date: Tue, 15 Nov 1994 08:12:31 GMT"
+  category: "Client Request"
+  description: "The date and time that the message was originated (in \"HTTP-date\" format as defined by RFC 7231)"
+
+Expect:
+  message: "Expect: 100-continue"
+  category: "Client Request"
+  description: "Indicates that particular server behaviors are required by the client."
+
+Forwarded:
+  message: "Forwarded: for=192.0.2.60;proto=http;by=203.0.113.43 Forwarded: for=192.0.2.43, for=198.51.100.17"
+  category: "Client Request"
+  description: "Disclose original information of a client connecting to a web server through an HTTP proxy."
+
+From:
+  message: "From: user@example.com"
+  category: "Client Request"
+  description: "The email address of the user making the request."
+
+Host:
+  message: "Host: en.wikipedia.org:8080
+            Host: en.wikipedia.org"
+  category: "Client Request"
+  description: "The domain name of the server (for virtual hosting), and the TCP port number on which the server is listening. \
+  The port number may be omitted if the port is the standard port for the service requested.
+                Mandatory since HTTP/1.1. If the request is generated directly in HTTP/2, it should not be used."
+
+If-Match:
+  message: "If-Match: \"737060cd8c284d8af7ad3082f209582d\""
+  category: "Client Request"
+  description: "Only perform the action if the client supplied entity matches the same entity on the server.
+  This is mainly for methods like PUT to only update a resource if it has not been modified since the user last updated it."
+
+If-Modified-Since:
+  message: "If-Modified-Since: Sat, 29 Oct 1994 19:43:31 GMT"
+  category: "Client Request"
+  description: "Allows a 304 Not Modified to be returned if content is unchanged."
+
+If-None-Match:
+  message: "If-None-Match: \"737060cd8c284d8af7ad3082f209582d\""
+  category: "Client Request"
+  description: "Allows a 304 Not Modified to be returned if content is unchanged."
+
+If-Range:
+  message: "If-Range: \"737060cd8c284d8af7ad3082f209582d\""
+  category: "Client Request"
+  description: "If the entity is unchanged, send me the part(s) that I am missing; otherwise, send me the entire new entity."
+
+If-Unmodified-Since:
+  message: "If-Unmodified-Since: Sat, 29 Oct 1994 19:43:31 GMT"
+  category: "Client Request"
+  description: "Only send the response if the entity has not been modified since a specific time."
+
+Max-Forwards:
+  message: "Max-Forwards: 10"
+  category: "Client Request"
+  description: "Limit the number of times the message can be forwarded through proxies or gateways."
+
+Origin:
+  message: "Origin: http://www.example-social-network.com"
+  category: "Client Request"
+  description: "Initiates a request for cross-origin resource sharing (asks server for Access-Control-* response fields)."
+
