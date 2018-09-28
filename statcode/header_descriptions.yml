@@ -52,17 +52,17 @@ Cache-Control:
 Connection:
   message: "Connection: keep-alive
             Connection: Upgrade"
-  category: "Client Request"
+  category: "Client Request, Server Response"
   description: "Control options for the current connection and list of hop-by-hop request fields.\
     Must not be used with HTTP/2."
 Content-Length:
   message: "Content-Length: 348"
-  category: "Client Request"
+  category: "Client Request, Server Response"
   description: "The length of the request body in octets (8-bit bytes)."
 
 Content-MD5:
   message: "Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ=="
-  category: "Client Request"
+  category: "Client Request, Server Response"
   description: "A Base64-encoded binary MD5 sum of the content of the request body."
 
 Content-Type:
@@ -78,7 +78,7 @@ Cookie:
 
 Date:
   message: "Date: Tue, 15 Nov 1994 08:12:31 GMT"
-  category: "Client Request"
+  category: "Client Request, Server Response"
   description: "The date and time that the message was originated (in \"HTTP-date\" format as defined by RFC 7231)"
 
 Expect:
@@ -139,4 +139,55 @@ Origin:
   message: "Origin: http://www.example-social-network.com"
   category: "Client Request"
   description: "Initiates a request for cross-origin resource sharing (asks server for Access-Control-* response fields)."
+
+Pragma:
+  message: "Pragma: no-cache"
+  category: "Client Request, Server Response"
+  description: "Implementation-specific fields that may have various effects anywhere along the request-response chain."
+
+Proxy-Authorization	:
+  message: "Proxy-Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=="
+  category: "Client Request"
+  description: "Authorization credentials for connecting to a proxy."
+
+Range:
+  message: "Range: bytes=500-999"
+  category: "Client Request"
+  description: "Request only part of an entity. Bytes are numbered from 0. "
+
+Referer:
+  message: "Referer: http://www.example.com/"
+  category: "Client Request"
+  description: "	This is the address of the previous web page from which a link to the currently requested page was followed.
+  (The word “referrer” has been misspelled in the RFC as well as in most implementations to the point that it has become \
+   standard usage and is considered correct terminology)"
+
+TE:
+  message: "TE: trailers, deflate"
+  category: "Client Request"
+  description: "The transfer encodings the user agent is willing to accept: the same values as for the response header \
+  field Transfer-Encoding can be used, plus the \"trailers\" value (related to the \"chunked\" transfer method) to \
+   notify the server it expects to receive additional fields in the trailer after the last, zero-sized, chunk.
+                 Only trailers is supported in HTTP/2."
+
+User-Agent:
+  message: "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/12.0"
+  category: "Client Request"
+  description: "The user agent string of the user agent."
+
+Upgrade:
+  message: "Upgrade: h2c, HTTPS/1.3, IRC/6.9, RTA/x11, websocket"
+  category: "Client Request, Server Response"
+  description: "Ask the server/client (respectively) to upgrade to another protocol.
+                Must not be used in HTTP/2."
+
+Via:
+  message: "Via: 1.0 fred, 1.1 example.com (Apache/1.1)"
+  category: "Client Request, Server Response"
+  description: "Informs the server/client (respectively) of proxies through which the request was sent."
+
+Warning:
+  message: "Warning: 199 Miscellaneous warning"
+  category: "Client Request, Server Response"
+  description: "A general warning about possible problems with the entity body."
 
