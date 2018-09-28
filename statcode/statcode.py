@@ -5,8 +5,9 @@
 
 import os
 import sys
-import yaml
+
 import urwid
+import yaml
 from urwid.widget import BOX, FLOW, FIXED
 
 # List of status code descriptions --- moved
@@ -245,28 +246,14 @@ class App(object):
 
 def generate_content(status_code):
     try:
-        try:
-            status_code = int(status_code)
-            num = True
-            try:
-                CODE_DESCRIPTIONS = yaml.safe_load(
-                    open('/'.join([CURR_DIR, "code_descriptions.yml"]), 'r'))
-            except yaml.constructor.ConstructorError as err:
-                print("Invalid file. Only support valid json and yaml files.")
-                sys.exit(1)
-        except (TypeError,ValueError):
-            num = False
-            try:
-                CODE_DESCRIPTIONS = yaml.safe_load(
-                    open('/'.join([CURR_DIR, "header_descriptions.yml"]), 'r'))
-            except yaml.constructor.ConstructorError as err:
-                print("Invalid file. Only support valid json and yaml files.")
-                sys.exit(1)
+        CODE_DESCRIPTIONS, num, status_code = get_yaml_dictionary(status_code)
         content = CODE_DESCRIPTIONS[status_code]
         pile = urwid.Pile([
             urwid.Text("STATCODE: The Manual for HTTP Status Codes\n", align="center"),
             urwid.Text(("title", "STATUS MESSAGE" if num else "HEADER INFO")),
-            urwid.Padding(urwid.Text(''.join([str(status_code), ": " if num else ", Example= ", content["message"], '\n'])), left=5),
+            urwid.Padding(
+                urwid.Text(''.join([str(status_code), ": " if num else ", Example= ", content["message"], '\n'])),
+                left=5),
             urwid.Text(("title", "CATEGORY")),
             urwid.Padding(urwid.Text(''.join([content["category"], '\n'])), left=5),
             urwid.Text(("title", "DESCRIPTION")),
@@ -279,10 +266,44 @@ def generate_content(status_code):
         return None
 
 
+def get_yaml_dictionary(status_code):
+    try:
+        status_code = int(status_code)
+        num = True
+        try:
+            CODE_DESCRIPTIONS = yaml.safe_load(
+                open('/'.join([CURR_DIR, "code_descriptions.yml"]), 'r'))
+        except yaml.constructor.ConstructorError as err:
+            print("Invalid file. Only support valid json and yaml files.")
+            sys.exit(1)
+    except (TypeError, ValueError):
+        num = False
+        try:
+            CODE_DESCRIPTIONS = yaml.safe_load(
+                open('/'.join([CURR_DIR, "header_descriptions.yml"]), 'r'))
+        except yaml.constructor.ConstructorError as err:
+            print("Invalid file. Only support valid json and yaml files.")
+            sys.exit(1)
+    return CODE_DESCRIPTIONS, num, status_code
+
+
 def print_help():
     print(''.join([BOLD, "statcode v1.0.0 – Made by @shobrook", END, '\n']))
     print("Like man pages, but for HTTP status codes.\n")
     print(''.join([UNDERLINE, "Usage:", END, " $ statcode ", YELLOW, "status_code", END]))
+    print(''.join([BOLD, "-h, --help:", END, " prints this help"]))
+    print(''.join([BOLD, "-a,-l, --all,--list statucode", END, " prints all codes in compact version"]))
+    print(''.join([BOLD, "-a,-l, --all,--list headers", END, " prints all headers in compact version"]))
+
+
+def print_all(status_code):
+    if status_code == "statuscode":
+        code_descriptions, num, status_code = get_yaml_dictionary(200)
+    else:
+        code_descriptions, num, status_code = get_yaml_dictionary("Accept")
+    del num, status_code
+    for k, v in code_descriptions.items():
+        print(''.join([RED, str(k), ':', END, " ", v["message"]]))
 
 
 ## Main ##
@@ -291,6 +312,15 @@ def print_help():
 def main():
     if len(sys.argv) == 1 or sys.argv[1].lower() in ("-h", "--help"):
         print_help()
+    elif sys.argv[1].lower() in ("-a", "-l", "--all", "--list"):
+        try:
+            status_code = sys.argv[2]
+            if status_code not in ("statuscode", "headers"):
+                print(''.join([BOLD, "Wrong parameter for this usage, see help", END]))
+                return
+            print_all(status_code)
+        except IndexError:
+            print_help()
     else:
         status_code = sys.argv[1]
         content = generate_content(status_code)
