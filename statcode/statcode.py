@@ -13,7 +13,6 @@ from urwid.widget import BOX, FLOW, FIXED
 # List of status code descriptions --- moved
 CURR_DIR = os.path.dirname(os.path.realpath(__file__))
 
-
 # Scroll actions
 SCROLL_LINE_UP = "line up"
 SCROLL_LINE_DOWN = "line down"
@@ -270,20 +269,17 @@ def get_yaml_dictionary(status_code):
     try:
         status_code = int(status_code)
         num = True
-        try:
-            CODE_DESCRIPTIONS = yaml.safe_load(
-                open('/'.join([CURR_DIR, "code_descriptions.yml"]), 'r'))
-        except yaml.constructor.ConstructorError as err:
-            print("Invalid file. Only support valid json and yaml files.")
-            sys.exit(1)
+        filename = "code_descriptions.yml"
     except (TypeError, ValueError):
         num = False
-        try:
-            CODE_DESCRIPTIONS = yaml.safe_load(
-                open('/'.join([CURR_DIR, "header_descriptions.yml"]), 'r'))
-        except yaml.constructor.ConstructorError as err:
-            print("Invalid file. Only support valid json and yaml files.")
-            sys.exit(1)
+        filename = "header_descriptions.yml"
+    try:
+        CODE_DESCRIPTIONS = yaml.safe_load(
+            open('/'.join([CURR_DIR, filename]), 'r'))
+    except yaml.constructor.ConstructorError as err:
+        print("Invalid file. Only support valid json and yaml files.")
+        sys.exit(1)
+
     return CODE_DESCRIPTIONS, num, status_code
 
 
@@ -301,9 +297,9 @@ def print_all(status_code):
         code_descriptions, num, status_code = get_yaml_dictionary(200)
     else:
         code_descriptions, num, status_code = get_yaml_dictionary("Accept")
-    del num, status_code
+    del status_code
     for k, v in code_descriptions.items():
-        print(''.join([RED, str(k), ':', END, " ", v["message"]]))
+        print(''.join([RED, str(k), ':', END, " ", v["message"] if num else ""]))
 
 
 ## Main ##

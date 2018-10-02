@@ -147,7 +147,7 @@ Pragma:
   category: "Client Request, Server Response"
   description: "Implementation-specific fields that may have various effects anywhere along the request-response chain."
 
-Proxy-Authorization	:
+Proxy-Authorization:
   message: "Proxy-Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=="
   category: "Client Request"
   description: "Authorization credentials for connecting to a proxy."
@@ -160,8 +160,8 @@ Range:
 Referer:
   message: "Referer: http://www.example.com/"
   category: "Client Request"
-  description: "	This is the address of the previous web page from which a link to the currently requested page was followed.
-  (The word “referrer” has been misspelled in the RFC as well as in most implementations to the point that it has become \
+  description: "This is the address of the previous web page from which a link to the currently requested page was followed.
+  (The word \"referrer\" has been misspelled in the RFC as well as in most implementations to the point that it has become \
    standard usage and is considered correct terminology)"
 
 TE:
@@ -332,8 +332,8 @@ Retry-After:
 Server:
   message: "Server: Apache/2.4.1 (Unix)"
   category: "Server Response"
-  description: "A name for the server.
- \                 Usually provides information about the OS and HTTP Server implementation used, mirroring User Agent"
+  description: "A name for the server.\
+                 Usually provides information about the OS and HTTP Server implementation used, mirroring User Agent"
 
 Set-Cookie:
   message: "Set-Cookie: UserID=JohnDoe; Max-Age=3600; Version=1"
