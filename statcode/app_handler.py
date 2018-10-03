@@ -15,7 +15,7 @@ class App(object):
         menu = _urwid.Text([u'\n', ("menu", u" Q "), ("light gray", u" Quit")])  # TODO: Make like man pages (vim input)
         layout = _urwid.Frame(body=content, footer=menu)
 
-        main_loop = _urwid.MainLoop(layout, self._palette, unhandled_input=App._handle_input)
+        main_loop = _urwid.MainLoop(layout, self._palette, unhandled_input=App._handle_input, handle_mouse=True)
         main_loop.run()
 
     @staticmethod
@@ -25,7 +25,7 @@ class App(object):
 
 
 class Scrollable(_urwid.WidgetDecoration):
-    # TODO: Fix scrolling behavior (works with up/down keys, not with cursor)
+    # TODO: Fix scrolling behavior (works with up/down keys, not with cursor) <--- Now works with mouse though
 
     def sizing(self):
         return frozenset([BOX])
@@ -90,6 +90,11 @@ class Scrollable(_urwid.WidgetDecoration):
         self._forward_keypress = bool(canv.cursor)
 
         return canv
+
+    def mouse_event(self, size, event, button, col, row, focus):
+        if 'press' in event.split(' '):
+            if button in (4,5):
+                self.keypress(size, SCROLL_PAGE_DOWN if button == 5 else SCROLL_PAGE_UP)
 
     def keypress(self, size, key):
         if self._forward_keypress:
@@ -184,7 +189,7 @@ class Scrollable(_urwid.WidgetDecoration):
         if FIXED in sizing:
             return ()
         elif FLOW in sizing:
-            return (size[0],)
+            return size[0],
 
     def get_scrollpos(self, size=None, focus=False):
         return self._trim_top
