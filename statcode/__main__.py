@@ -1,5 +1,4 @@
-import sys
-from statcode import main
+import statcode.statcode
 
 if __name__ == "__main__":
-    main()
+    statcode.statcode.main()
