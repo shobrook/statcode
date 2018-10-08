@@ -6,6 +6,7 @@ import urwid
 from statcode.constants import CURR_DIR
 from statcode.app_handler import Scrollable
 
+
 def generate_content(status_code):
     try:
         code_descriptions, num, status_code = get_yaml_dictionary(status_code)

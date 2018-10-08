@@ -5,7 +5,7 @@
 
 import os
 import sys
-
+import shutil
 
 from statcode.app_handler import App
 from statcode.content_generator import get_yaml_dictionary, generate_content
@@ -66,7 +66,7 @@ def main():
             try:
                 App(content)  # Opens interface
             except NameError:
-                size = os.get_terminal_size()
+                size = shutil.get_terminal_size()
                 canvas = content.render(size)
                 text = "".join(text.decode("utf-8") for text in canvas.text)
                 print(text.rstrip())
