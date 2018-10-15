@@ -7,6 +7,14 @@ from statcode.constants import CURR_DIR
 from statcode.app_handler import Scrollable
 
 
+def __load_file_data(num):
+    copyleft = yaml.safe_load(open('/'.join([CURR_DIR, "copyright_description.yml"]), 'r'))
+    if num:
+        return copyleft['statuscode']
+    else:
+        return copyleft['headers']
+
+
 def generate_content(status_code):
     try:
         code_descriptions, num, status_code = get_yaml_dictionary(status_code)
@@ -20,7 +28,9 @@ def generate_content(status_code):
             urwid.Text(("title", "CATEGORY")),
             urwid.Padding(urwid.Text(''.join([content["category"], '\n'])), left=5),
             urwid.Text(("title", "DESCRIPTION")),
-            urwid.Padding(urwid.Text(content["description"]), left=5)
+            urwid.Padding(urwid.Text(''.join([content["description"], '\n'])), left=5),
+            urwid.Text(("title", "COPYRIGHT")),
+            urwid.Padding(urwid.Text(''.join([__load_file_data(num), '\n'])), left=5),
         ])
         padding = urwid.Padding(Scrollable(pile), left=1, right=1)
 
