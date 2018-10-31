@@ -26,7 +26,7 @@
                 header fields included in that very informational response. It is intended to\
                 minimize the perceived latency taking advantage of the Link header field to\
                 speculatively preload or prefetch resources.
-                
+
                 Checkpoint
                 This code is the same as the 308 status code except for the fact that it is sent\
                 as a provisional response rather than a final response.\

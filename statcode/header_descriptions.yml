@@ -1,0 +1,430 @@
+Accept-Charset:
+  message: "Accept-Charset: utf-8"
+  category: "Client Request"
+  description: "Character sets that are acceptable by the client."
+
+A-IM:
+  message: "A-IM: feed"
+  category: "Client Request"
+  description: "Acceptable instance-manipulations for the request. See RFC 3229"
+
+Accept:
+  message: "Accept: text/html"
+  category: "Client Request"
+  description: "Media type(s) that is(/are) acceptable for the response."
+
+Accept-Encoding:
+  message: "Accept-Encoding: gzip, deflate"
+  category: "Client Request"
+  description: "List of acceptable encodings. See HTTP compression."
+
+Accept-Language:
+  message: "Accept-Language: en-US"
+  category: "Client Request"
+  description: "List of acceptable human languages for response."
+
+Accept-Datetime:
+  message: "Accept-Datetime: Thu, 31 May 2007 20:35:00 GMT"
+  category: "Client Request"
+  description: "	Acceptable version in time."
+
+Access-Control-Request-Method:
+  message: "Access-Control-Request-Method: GET"
+  category: "Client Request"
+  description: "Initiates a request for cross-origin resource sharing with Origin."
+
+Access-Control-Request-Headers:
+  message: "Access-Control-Request-Method: GET"
+  category: "Client Request"
+  description: "Initiates a request for cross-origin resource sharing with Origin."
+
+Authorization:
+  message: "Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=="
+  category: "Client Request"
+  description: "Authentication credentials for HTTP authentication."
+
+Cache-Control:
+  message: "Client= Cache-Control: no-cache
+  Server= Cache-Control: max-age=3600"
+  category: "Client Request, Server Response"
+  description: "For client: Used to specify directives that must be obeyed by all caching mechanisms \
+                along the request-response chain.
+                For Server: Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+
+Connection:
+  message: "Connection: keep-alive
+            Connection: Upgrade"
+  category: "Client Request, Server Response"
+  description: "Control options for the current connection and list of hop-by-hop request fields.\
+    Must not be used with HTTP/2."
+Content-Length:
+  message: "Content-Length: 348"
+  category: "Client Request, Server Response"
+  description: "The length of the request body in octets (8-bit bytes)."
+
+Content-MD5:
+  message: "Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ=="
+  category: "Client Request, Server Response"
+  description: "A Base64-encoded binary MD5 sum of the content of the request body."
+
+Content-Type:
+  message: "Content-Type: application/x-www-form-urlencoded"
+  category: "Client Request, Server Response"
+  description: "Client Request: The Media type of the body of the request (used with POST and PUT requests).\
+                  Server Response: The Media type of the body of the response (always sent, eg text/html)."
+
+Cookie:
+  message: "Cookie: $Version=1; Skin=new;"
+  category: "Client Request"
+  description: "An HTTP cookie previously sent by the server with Set-Cookie."
+
+Date:
+  message: "Date: Tue, 15 Nov 1994 08:12:31 GMT"
+  category: "Client Request, Server Response"
+  description: "The date and time that the message was originated (in \"HTTP-date\" format as defined by RFC 7231)"
+
+Expect:
+  message: "Expect: 100-continue"
+  category: "Client Request"
+  description: "Indicates that particular server behaviors are required by the client."
+
+Forwarded:
+  message: "Forwarded: for=192.0.2.60;proto=http;by=203.0.113.43 Forwarded: for=192.0.2.43, for=198.51.100.17"
+  category: "Client Request"
+  description: "Disclose original information of a client connecting to a web server through an HTTP proxy."
+
+From:
+  message: "From: user@example.com"
+  category: "Client Request"
+  description: "The email address of the user making the request."
+
+Host:
+  message: "Host: en.wikipedia.org:8080
+            Host: en.wikipedia.org"
+  category: "Client Request"
+  description: "The domain name of the server (for virtual hosting), and the TCP port number on which the server is listening. \
+  The port number may be omitted if the port is the standard port for the service requested.
+                Mandatory since HTTP/1.1. If the request is generated directly in HTTP/2, it should not be used."
+
+If-Match:
+  message: "If-Match: \"737060cd8c284d8af7ad3082f209582d\""
+  category: "Client Request"
+  description: "Only perform the action if the client supplied entity matches the same entity on the server.
+  This is mainly for methods like PUT to only update a resource if it has not been modified since the user last updated it."
+
+If-Modified-Since:
+  message: "If-Modified-Since: Sat, 29 Oct 1994 19:43:31 GMT"
+  category: "Client Request"
+  description: "Allows a 304 Not Modified to be returned if content is unchanged."
+
+If-None-Match:
+  message: "If-None-Match: \"737060cd8c284d8af7ad3082f209582d\""
+  category: "Client Request"
+  description: "Allows a 304 Not Modified to be returned if content is unchanged."
+
+If-Range:
+  message: "If-Range: \"737060cd8c284d8af7ad3082f209582d\""
+  category: "Client Request"
+  description: "If the entity is unchanged, send me the part(s) that I am missing; otherwise, send me the entire new entity."
+
+If-Unmodified-Since:
+  message: "If-Unmodified-Since: Sat, 29 Oct 1994 19:43:31 GMT"
+  category: "Client Request"
+  description: "Only send the response if the entity has not been modified since a specific time."
+
+Max-Forwards:
+  message: "Max-Forwards: 10"
+  category: "Client Request"
+  description: "Limit the number of times the message can be forwarded through proxies or gateways."
+
+Origin:
+  message: "Origin: http://www.example-social-network.com"
+  category: "Client Request"
+  description: "Initiates a request for cross-origin resource sharing (asks server for Access-Control-* response fields)."
+
+Pragma:
+  message: "Pragma: no-cache"
+  category: "Client Request, Server Response"
+  description: "Implementation-specific fields that may have various effects anywhere along the request-response chain."
+
+Proxy-Authorization:
+  message: "Proxy-Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=="
+  category: "Client Request"
+  description: "Authorization credentials for connecting to a proxy."
+
+Range:
+  message: "Range: bytes=500-999"
+  category: "Client Request"
+  description: "Request only part of an entity. Bytes are numbered from 0. "
+
+Referer:
+  message: "Referer: http://www.example.com/"
+  category: "Client Request"
+  description: "This is the address of the previous web page from which a link to the currently requested page was followed.
+  (The word \"referrer\" has been misspelled in the RFC as well as in most implementations to the point that it has become \
+   standard usage and is considered correct terminology)"
+
+TE:
+  message: "TE: trailers, deflate"
+  category: "Client Request"
+  description: "The transfer encodings the user agent is willing to accept: the same values as for the response header \
+  field Transfer-Encoding can be used, plus the \"trailers\" value (related to the \"chunked\" transfer method) to \
+   notify the server it expects to receive additional fields in the trailer after the last, zero-sized, chunk.
+                 Only trailers is supported in HTTP/2."
+
+User-Agent:
+  message: "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/12.0"
+  category: "Client Request"
+  description: "The user agent string of the user agent."
+
+Upgrade:
+  message: "Upgrade: h2c, HTTPS/1.3, IRC/6.9, RTA/x11, websocket"
+  category: "Client Request, Server Response"
+  description: "Ask the server/client (respectively) to upgrade to another protocol.
+                Must not be used in HTTP/2."
+
+Via:
+  message: "Via: 1.0 fred, 1.1 example.com (Apache/1.1)"
+  category: "Client Request, Server Response"
+  description: "Informs the server/client (respectively) of proxies through which the request was sent."
+
+Warning:
+  message: "Warning: 199 Miscellaneous warning"
+  category: "Client Request, Server Response"
+  description: "A general warning about possible problems with the entity body."
+
+Access-Control-Allow-Origin:
+  message: "Access-Control-Allow-Origin: *"
+  category: "Server Response"
+  description: "Specifying which web sites can participate in cross-origin resource sharing"
+
+Access-Control-Allow-Credentials:
+  message: "Access-Control-Allow-Origin: *"
+  category: "Server Response"
+  description: "Specifying which web sites can participate in cross-origin resource sharing"
+
+Access-Control-Expose-Headers:
+  message: "Access-Control-Allow-Origin: *"
+  category: "Server Response"
+  description: "Specifying which web sites can participate in cross-origin resource sharing"
+
+Access-Control-Max-Age:
+  message: "Access-Control-Allow-Origin: *"
+  category: "Server Response"
+  description: "Specifying which web sites can participate in cross-origin resource sharing"
+
+Access-Control-Allow-Methods:
+  message: "Access-Control-Allow-Origin: *"
+  category: "Server Response"
+  description: "Specifying which web sites can participate in cross-origin resource sharing"
+
+Access-Control-Allow-Headers:
+  message: "Access-Control-Allow-Origin: *"
+  category: "Server Response"
+  description: "Specifying which web sites can participate in cross-origin resource sharing"
+
+Accept-Patch:
+  message: "Accept-Patch: text/example;charset=utf-8"
+  category: "Server Response"
+  description: "Specifies which patch document formats this server supports."
+
+Accept-Ranges:
+  message: "Accept-Ranges: bytes"
+  category: "Server Response"
+  description: "What partial content range types this server supports via byte serving."
+
+Age:
+  message: "Age: 12"
+  category: "Server Response"
+  description: "The age the object has been in a proxy cache in seconds."
+
+Allow:
+  message: "Allow: GET, HEAD"
+  category: "Server Response"
+  description: "Valid methods for a specified resource. To be used for a 405 Method not allowed."
+
+Alt-Svc:
+  message: "Alt-Svc: http/1.1=\"http2.example.com:8001\"; ma=7200"
+  category: "Server Response"
+  description: "A server uses \"Alt-Svc\" header (meaning Alternative Services) to indicate that its resources can also \
+  be accessed at a different network location (host or port) or using a different protocol.
+                 When using HTTP/2, servers should instead send an ALTSVC frame."
+
+Content-Disposition:
+  message: "Content-Disposition: attachment; filename=\"fname.ext\""
+  category: "Server Response"
+  description: "An opportunity to raise a \"File Download\" dialogue box for a known MIME type with binary format \
+                 or suggest a filename for dynamic content. Quotes are necessary with special characters."
+
+Content-Language:
+  message: "Content-Language: it"
+  category: "Server Response"
+  description: "The natural language or languages of the intended audience for the enclosed content"
+
+Content-Location:
+  message: "Content-Location: /index.htm"
+  category: "Server Response"
+  description: "An alternate location for the returned data."
+
+Content-Range:
+  message: "Content-Range: bytes 21010-47021/47022"
+  category: "Server Response"
+  description: "Where in a full body message this partial message belongs."
+
+Delta-Base:
+  message: "Delta-Base: \"abc\""
+  category: "Server Response"
+  description: "Specifies the delta-encoding entity tag of the response."
+
+ETag:
+  message: "ETag: \"737060cd8c284d8af7ad3082f209582d\""
+  category: "Server Response"
+  description: "An identifier for a specific version of a resource, often a message digest."
+
+Expires:
+  message: "Expires: Thu, 01 Dec 1994 16:00:00 GMT"
+  category: "Server Response"
+  description: "Gives the date/time after which the response is considered stale (in \"HTTP-date\" format as defined by RFC 7231)."
+
+IM:
+  message: "IM: feed"
+  category: "Server Response"
+  description: "Instance-manipulations applied to the response."
+
+Last-Modified:
+  message: "Last-Modified: Tue, 15 Nov 1994 12:45:26 GMT"
+  category: "Server Response"
+  description: "The last modified date for the requested object (in \"HTTP-date\" format as defined by RFC 7231)."
+
+Link:
+  message: "Link: </feed>; rel=\"alternate\""
+  category: "Server Response"
+  description: "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988."
+
+Location:
+  message: "Location: /pub/WWW/People.html"
+  category: "Server Response"
+  description: "Used in redirection, or when a new resource has been created. Can be absolute or relative path \
+                (if absolute, http:// protocol must be specified)."
+
+P3P:
+  message: "P3P: CP=\"This is not a P3P policy! See https://en.wikipedia.org/wiki/Special:CentralAutoLogin/P3P for more info.\""
+  category: "Server Response"
+  description: "This field is supposed to set P3P policy, in the form of P3P:CP=\"your_compact_policy\".
+  However, P3P did not take off,[45] most browsers have never fully implemented it, a lot of websites set this field \
+  with fake policy text, that was enough to fool browsers the existence of P3P policy and grant permissions for third party cookies."
+
+Proxy-Authenticate:
+  message: "Proxy-Authenticate: Basic"
+  category: "Server Response"
+  description: "Request authentication to access the proxy."
+
+Public-Key-Pins:
+  message: "Public-Key-Pins: max-age=2592000; pin-sha256=\"E9CZ9INDbd+2eRQozYqqbQ2yXLVKB9+xcprMF+44U1g=\";"
+  category: "Server Response"
+  description: "HTTP Public Key Pinning, announces hash of website's authentic TLS certificate."
+
+Retry-After:
+  message: "Retry-After: 120;  Retry-After: Fri, 07 Nov 2014 23:59:59 GMT"
+  category: "Server Response"
+  description: "If an entity is temporarily unavailable, this instructs the client to try again later. Value could be a specified period of time (in seconds) or a HTTP-date."
+
+Server:
+  message: "Server: Apache/2.4.1 (Unix)"
+  category: "Server Response"
+  description: "A name for the server.\
+                 Usually provides information about the OS and HTTP Server implementation used, mirroring User Agent"
+
+Set-Cookie:
+  message: "Set-Cookie: UserID=JohnDoe; Max-Age=3600; Version=1"
+  category: "Server Response"
+  description: "Sets an HTTP Cookie on the client."
+
+Strict-Transport-Security:
+  message: "Strict-Transport-Security: max-age=16070400; includeSubDomains"
+  category: "Server Response"
+  description: "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+
+Trailer:
+  message: "Trailer: Max-Forwards"
+  category: "Server Response"
+  description: "The Trailer general field value indicates that the given set of header fields is present in the trailer of a message encoded with chunked transfer coding."
+
+Transfer-Encoding:
+  message: "Transfer-Encoding: chunked"
+  category: "Server Response"
+  description: "The form of encoding used to safely transfer the entity to the user. Currently defined methods are:\
+   chunked, compress, deflate, gzip, identity.
+                Must not be used with HTTP/2."
+
+Tk:
+  message: "Tk: ?"
+  category: "Server Response"
+  description: "Tracking Status header, value suggested to be sent in response to a DNT(do-not-track), possible values:
+                \"!\" — under construction
+                \"?\" — dynamic
+                 \"G\" — gateway to multiple parties
+                 \"N\" — not tracking
+                 \"T\" — tracking
+                 \"C\" — tracking with consent
+                 \"P\" — tracking only if consented
+                 \"D\" — disregarding DNT
+                 \"U\" — updated."
+
+Vary:
+  message: "Vary: *  ; Vary: Accept-Language"
+  category: "Server Response"
+  description: "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+
+WWW-Authenticate:
+  message: "WWW-Authenticate: Basic"
+  category: "Server Response"
+  description: "Indicates the authentication scheme that should be used to access the requested entity."
+
+X-Frame-Options:
+  message: "X-Frame-Options: deny"
+  category: "Server Response"
+  description: "Clickjacking protection: deny - no rendering within a frame, sameorigin - no rendering if origin mismatch, allow-from - allow from specified location, allowall - non-standard, allow from any location."
+
+Refresh:
+  message: "Refresh: 5; url=http://www.example.com/pub/statcode/fun_times.html"
+  category: "Server Response"
+  description: "Used in redirection, or when a new resource has been created. This refresh redirects after 5 seconds. Header extension introduced by Netscape and supported by most web browsers. NOT STANDARD."
+
+Status:
+  message: "Status: 200 OK"
+  category: "Server Response"
+  description: "CGI header field specifying the status of the HTTP response. Normal HTTP responses use a separate \"Status-Line\" instead, defined by RFC 7230. NOT STANDARD."
+
+X-XSS-Protection:
+  message: "X-XSS-Protection: 1; mode=block"
+  category: "Server Response"
+  description: "Cross-site scripting (XSS) filter. NOT STANDARD."
+
+X-UA-Compatible:
+  message: "X-UA-Compatible: IE=EmulateIE7  ; X-UA-Compatible: IE=edge  ;  X-UA-Compatible: Chrome=1"
+  category: "Server Response"
+  description: "Recommends the preferred rendering engine (often a backward-compatibility mode) to use to display the content. Also used to activate Chrome Frame in Internet Explorer. NOT STANDARD."
+
+X-Powered-By:
+  message: "X-Powered-By: PHP/5.4.0"
+  category: "Server Response"
+  description: "Specifies the technology (e.g. ASP.NET, PHP, JBoss) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version). NOT STANDARD."
+
+X-Content-Type-Options:
+  message: "X-Content-Type-Options: nosniff"
+  category: "Server Response"
+  description: "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type. This also applies to Google Chrome, when downloading extensions. NOT STANDARD."
+
+X-Requested-With:
+  message: "X-Requested-With: XMLHttpRequest"
+  category: "Client Request"
+  description: "Mainly used to identify Ajax requests. Most JavaScript frameworks send this field with value of XMLHttpRequest. NOT STANDARD."
+
+DNT:
+  message: "DNT: 1 (Do Not Track Enabled)   ;     DNT: 0 (Do Not Track Disabled)"
+  category: "Client Request"
+  description: "Requests a web application to disable their tracking of a user.
+  This is Mozilla's version of the X-Do-Not-Track header field (since Firefox 4.0 Beta 11). \
+  Safari and IE9 also have support for this field.
+  On March 7, 2011, a draft proposal was submitted to IETF. The W3C Tracking Protection Working Group is producing a specification."
