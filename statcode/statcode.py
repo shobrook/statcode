@@ -6,6 +6,7 @@
 import os
 import sys
 import shutil
+import builtins
 
 import yaml
 import urwid
@@ -27,10 +28,21 @@ SCROLL_TO_END = "to end"
 
 # ASCII color codes
 YELLOW = '\033[33m'
-RED = "\033[31m"
+RED = "\033[32m"
 BOLD = '\033[1m'
 UNDERLINE = '\033[4m'
 END = "\033[0m"
+
+ESCAPE_SEQUENCES = (YELLOW, RED, BOLD, UNDERLINE, END)
+
+isDumb = os.getenv("TERM", "dumb").lower() == "dumb"
+
+
+def print(string, *args, **kwargs):
+    if isDumb:
+        for i in ESCAPE_SEQUENCES:
+            string = string.replace(i, '')
+    return builtins.print(string, *args, **kwargs)
 
 
 class Scrollable(urwid.WidgetDecoration):
@@ -341,8 +353,8 @@ def main():
             except NameError:
                 size = shutil.get_terminal_size()
                 canvas = content.render(size)
-                text = "".join(text.decode("utf-8") for text in canvas.text)
-                print(text.rstrip())
+                text = ("".join(text.decode("utf-8") for text in canvas.text)).rstrip()
+                print(text)
         else:
             print(''.join([RED, "Sorry, statcode doesn't recognize: ", status_code, END]))
 
