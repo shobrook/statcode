@@ -6,7 +6,6 @@
 import os
 import sys
 import shutil
-import builtins
 
 import yaml
 import urwid
@@ -17,6 +16,7 @@ from urwid.widget import BOX, FLOW, FIXED
 #########
 
 CURR_DIR = os.path.dirname(os.path.realpath(__file__))
+isNotDumb = os.getenv("TERM", "dumb").lower() != "dumb"
 
 # Scroll actions
 SCROLL_LINE_UP = "line up"
@@ -27,22 +27,13 @@ SCROLL_TO_TOP = "to top"
 SCROLL_TO_END = "to end"
 
 # ASCII color codes
-YELLOW = '\033[33m'
-RED = "\033[31m"
-BOLD = '\033[1m'
-UNDERLINE = '\033[4m'
-END = "\033[0m"
+YELLOW = '\033[33m' if isNotDumb else ''
+RED = "\033[31m" if isNotDumb else ''
+BOLD = '\033[1m' if isNotDumb else ''
+UNDERLINE = '\033[4m' if isNotDumb else ''
+END = "\033[0m" if isNotDumb else ''
 
 ESCAPE_SEQUENCES = (YELLOW, RED, BOLD, UNDERLINE, END)
-
-isDumb = os.getenv("TERM", "dumb").lower() == "dumb"
-
-
-def print(string, *args, **kwargs):
-    if isDumb:
-        for i in ESCAPE_SEQUENCES:
-            string = string.replace(i, '')
-    return builtins.print(string, *args, **kwargs)
 
 
 class Scrollable(urwid.WidgetDecoration):
