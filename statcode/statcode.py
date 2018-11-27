@@ -33,8 +33,6 @@ BOLD = '\033[1m' if isNotDumb else ''
 UNDERLINE = '\033[4m' if isNotDumb else ''
 END = "\033[0m" if isNotDumb else ''
 
-ESCAPE_SEQUENCES = (YELLOW, RED, BOLD, UNDERLINE, END)
-
 
 class Scrollable(urwid.WidgetDecoration):
     # TODO: Fix scrolling behavior (works with up/down keys, not with cursor) <--- Now works with mouse though
