@@ -11,12 +11,14 @@ import yaml
 import urwid
 from urwid.widget import BOX, FLOW, FIXED
 
+
 #########
 # HELPERS
 #########
 
+
 CURR_DIR = os.path.dirname(os.path.realpath(__file__))
-isNotDumb = os.getenv("TERM", "dumb").lower() != "dumb"
+is_not_dumb = os.getenv("TERM", "dumb").lower() != "dumb"
 
 # Scroll actions
 SCROLL_LINE_UP = "line up"
@@ -27,12 +29,11 @@ SCROLL_TO_TOP = "to top"
 SCROLL_TO_END = "to end"
 
 # ASCII color codes
-YELLOW = '\033[33m' if isNotDumb else ''
-RED = "\033[31m" if isNotDumb else ''
-BOLD = '\033[1m' if isNotDumb else ''
-UNDERLINE = '\033[4m' if isNotDumb else ''
-END = "\033[0m" if isNotDumb else ''
-
+YELLOW = '\033[33m' if is_not_dumb else ''
+RED = "\033[31m" if is_not_dumb else ''
+BOLD = '\033[1m' if is_not_dumb else ''
+UNDERLINE = '\033[4m' if is_not_dumb else ''
+END = "\033[0m" if is_not_dumb else ''
 
 class Scrollable(urwid.WidgetDecoration):
     # TODO: Fix scrolling behavior (works with up/down keys, not with cursor) <--- Now works with mouse though
@@ -240,14 +241,6 @@ class App(object):
         if inp in ('q', 'Q'):
             raise urwid.ExitMainLoop()
 
-
-######
-# MAIN
-######
-
-## Helpers ##
-
-
 def generate_content(status_code):
     try:
         code_descriptions, num, status_code = get_yaml_dictionary(status_code)
@@ -271,14 +264,12 @@ def generate_content(status_code):
     except KeyError:  # None is used to print "not recognized", so KeyError. Other errors have nothing to do with it
         return None
 
-
 def __load_file_data(num):
     copyleft = yaml.safe_load(open('/'.join([CURR_DIR, "copyright_description.yml"]), 'r'))
     if num:
         return copyleft['statuscode']
     else:
         return copyleft['headers']
-
 
 def get_yaml_dictionary(status_code):
     try:
@@ -297,7 +288,6 @@ def get_yaml_dictionary(status_code):
 
     return code_descriptions, num, status_code
 
-
 def print_help():
     print(''.join([BOLD, "statcode v1.0.0 – Made by @shobrook", END, '\n']))
     print("Like man pages, but for HTTP status codes.\n")
@@ -305,7 +295,6 @@ def print_help():
     print(''.join([BOLD, "-h, --help:", END, " prints this help"]))
     print(''.join([BOLD, "-a,-l, --all,--list statucode", END, " prints all codes in compact version"]))
     print(''.join([BOLD, "-a,-l, --all,--list headers", END, " prints all headers in compact version"]))
-
 
 def print_all(status_code):
     if status_code == "statuscode":
@@ -317,7 +306,9 @@ def print_all(status_code):
         print(''.join([RED, str(k), ':', END, " ", v["message"] if num else ""]))
 
 
-## Main ##
+######
+# MAIN
+######
 
 
 def main():
