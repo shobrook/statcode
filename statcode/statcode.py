@@ -241,6 +241,12 @@ class App(object):
         if inp in ('q', 'Q'):
             raise urwid.ExitMainLoop()
 
+def output_without_ui(content):
+    size = shutil.get_terminal_size()
+    canvas = content.render(size)
+    text = ("\n".join(text.decode("utf-8") for text in canvas.text)).rstrip()
+    print(text)
+
 def generate_content(status_code):
     try:
         code_descriptions, num, status_code = get_yaml_dictionary(status_code)
@@ -295,6 +301,7 @@ def print_help():
     print(''.join([BOLD, "-h, --help:", END, " prints this help"]))
     print(''.join([BOLD, "-a,-l, --all,--list statucode", END, " prints all codes in compact version"]))
     print(''.join([BOLD, "-a,-l, --all,--list headers", END, " prints all headers in compact version"]))
+    print(''.join([BOLD, "-n, --no-ui", END, " force output without UI"]))
 
 def print_all(status_code):
     if status_code == "statuscode":
@@ -325,16 +332,17 @@ def main():
             print_help()
     else:
         status_code = sys.argv[1]
+        without_ui = len(sys.argv) > 2 and sys.argv[2].lower() in ("-n", "--no-ui")
         content = generate_content(status_code)
 
         if content:
-            try:
-                App(content)  # Opens interface
-            except NameError:
-                size = shutil.get_terminal_size()
-                canvas = content.render(size)
-                text = ("".join(text.decode("utf-8") for text in canvas.text)).rstrip()
-                print(text)
+            if without_ui or not is_not_dumb:
+                output_without_ui(content)
+            else:
+                try:
+                    App(content)  # Opens interface
+                except NameError:
+                    output_without_ui(content)
         else:
             print(''.join([RED, "Sorry, statcode doesn't recognize: ", status_code, END]))
 
