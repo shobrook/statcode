@@ -7,7 +7,7 @@ from codecs import open
 setup(
     name="statcode",
     description="Like man pages, but for HTTP status codes",
-    version="v1.0.0",
+    version="v2.0.0",
     install_requires=["pyyaml", "urwid"],
     packages=["statcode"],
     entry_points={"console_scripts": ["statcode = statcode.statcode:main"]},
