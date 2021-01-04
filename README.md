@@ -1,22 +1,24 @@
 # statcode
 
-`statcode` is like `man` but for HTTP status codes. If you're a web developer, you probably spend considerable time looking at response codes (usually errors) and then Googling what they mean. But with `statcode`, you can simply run `$ statcode [status_code]` and get a quick explanation of your HTTP response without leaving the terminal.
+`statcode` is like `man` but for HTTP status codes. If you're a web developer, you probably spend some time looking at response codes (usually errors) and then Googling what they mean. But with `statcode`, you can simply run `$ statcode [status_code]` and get a quick explanation of your HTTP response without leaving the terminal.
 
 ![demo](assets/demo.gif)
 
 ## Installation
 
-`statcode` works on MacOS, Linux, and Windows (if you use Cygwin), with compiled binaries available for [every release](https://github.com/shobrook/statcode/releases). You can also install it with pip:
+>Requires Python 3.0 or higher
 
-    $ pip install statcode
+`statcode` works on MacOS, Linux, and Windows (if you use Cygwin). You can install it with pip:
 
-Requires Python 3.0 or higher.
+```bash
+$ pip install statcode
+```
 
-### Arch Linux
+Or if you're running Arch, you can install [`statcode`](https://aur.archlinux.org/packages/statcode/) from the AUR:
 
-You can install the [`statcode`](https://aur.archlinux.org/packages/statcode/) package from the AUR:
-
-    $ aurman -S statcode
+```bash
+$ aurman -S statcode
+```
 
 ## Contributing
 
